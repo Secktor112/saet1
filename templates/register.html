@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Страница авторизации
+{% endblock %}
+
+{% block body %}
+
+<div class="form-signing">
+    <form align="center" method="post" class="container mt-5">
+            <h1 align="center" class="h4 mb-3 fw-normal please text-white">Регистрация</h1>
+            <input type="text" name="login" id="login" class="form_control forinputs colortext" placeholder="Введите Логин"><br>
+            <input type="password" name="psw" id="psw" class="form_control forinputs colortext" placeholder="Введите Пароль"><br>
+            <input type="password" name="psw2" id="psw2" class="form_control forinputs colortext" placeholder="Повторите Пароль"><br>
+            <input type="submit" class="btn btn-success" value="Зарегистрироваться"><br>
+            <a href="/auth" type="submit" class="btn btn-alert text-white">Войти</a>
+                {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                    <dl class=flashes>
+                    {% for message in messages %}
+                      <dt class="text-white">{{ message }}</dt>
+                    {% endfor %}
+                    </dl>
+                  {% endif %}
+                {% endwith %}
+    </form>
+</div>
+
+{% endblock %}
